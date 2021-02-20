@@ -8,14 +8,15 @@ choosenPlace = None
 
 
 def save():
-    fd = open(FILENAME, 'w')
+    fd = open(FILENAME, 'wb')
     saver.dump(consumptionPlaces, fd)
     fd.close()
     return True
 
 def load():
     try:
-        fd = open(FILENAME, 'r')
+        global consumptionPlaces
+        fd = open(FILENAME, 'rb')
         consumptionPlaces = saver.load(fd)
         fd.close()
     except OSError:

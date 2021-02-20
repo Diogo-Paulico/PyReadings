@@ -1,5 +1,8 @@
 from os import read
-import simpleReading as sr, biHorarioReading as br, triHorarioReading as tr, datetime
+import simpleReading as sr
+import biHorarioReading as br
+import triHorarioReading as tr
+from datetime import date
 
 class powerSpot:
     def __init__(self, name, cpe, nif, typeOfMeter):
@@ -35,29 +38,25 @@ class powerSpot:
         #         readingObject = triHorarioReading(argv[0], argv[1], argv[2])
        
         self.lastReading = readingObject
-        self.lastReadingDate = None
-
+        self.lastReadingDate = date.today().strftime("%d/%m/%Y")
 
     def updateReading(self, *argv):
         try:
             self.lastReading.updateReading(*argv)
-            self.lastReadingDate = datetime.today().strftime("%d/%m/%Y")
+            self.lastReadingDate = date.today().strftime("%d/%m/%Y")
         except ValueError:
             return False
 
 
     def getLastReading(self):
         reading = self.lastReading.getLastReading()
-        reading["date"] = str(self.lastReadingDate())
+        reading["data"] = self.lastReadingDate
         return reading
 
     def getReadingArgs(self):
-        if type(self.lastReading) is simpleReading:
+        if type(self.lastReading) is sr:
             return ["Simples"]
-        elif type(self.lastReading) is biHorarioReading:
+        elif type(self.lastReading) is br:
             return ["Vazio", "Fora Vazio"]
-        elif type(self.lastReading) is triHorarioReading:
+        elif type(self.lastReading) is tr:
             return [ "Cheias", "Vazio", "Ponta"]
-
-    def __str__(self):
-        return self.name

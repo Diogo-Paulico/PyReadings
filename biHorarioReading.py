@@ -3,19 +3,21 @@ class biHorarioReading:
          self.vazio = vazio
          self.foraVazio = foraVazio
         
-def updateReading(self, vazio, foraVazio):
-    if self.vazio <= vazio and self.foraVazio <= foraVazio:
-        self.vazio = vazio
-        self.foraVazio = foraVazio
-    else:
-        raise ValueError
+    def updateReading(self, vazio, foraVazio):
+        if self.vazio <= vazio and self.foraVazio <= foraVazio:
+            self.vazio = vazio
+            self.foraVazio = foraVazio
+        else:
+            raise ValueError
+        
+    def getLastReading(self):
+        return {
+            "foraVazio": self.foraVazio,
+            "vazio": self.vazio
+            }
+
 
 def makeBiHorarioReading(vazio, foraVazio):
         bi = biHorarioReading(vazio, foraVazio)
         return bi
 
-def getLastReading(self):
-        return {
-            "foraVazio": self.foraVazio,
-            "vazio": self.vazio
-            }

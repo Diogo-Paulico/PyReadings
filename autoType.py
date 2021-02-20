@@ -140,9 +140,9 @@ def addReading():
 
 def showLastReading():
     reading = fun.getLastReading()
-    print('Data: {0} \n'.format(reading.pop("date")))
+    print('Data: {0} \n'.format(reading.pop("data")))
     for x, y in reading.items():
-        print('{0}: {1}').format(x,str(y)) 
+        print('{0}: {1}'.format(x,str(y)))
 
 
 def initialReadingEntry():
