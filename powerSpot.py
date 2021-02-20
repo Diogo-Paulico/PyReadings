@@ -1,5 +1,5 @@
 from os import read
-import simpleReading, biHorarioReading, triHorarioReading, datetime
+import simpleReading as sr, biHorarioReading as br, triHorarioReading as tr, datetime
 
 class powerSpot:
     def __init__(self, name, cpe, nif, typeOfMeter):
@@ -11,11 +11,11 @@ class powerSpot:
         readingObject = None
         
         if typeOfMeter == 1:
-                readingObject = simpleReading(0)
+                readingObject = sr.makeSimpleReading(0)
         elif typeOfMeter == 2:
-                readingObject = biHorarioReading(0,0)
+                readingObject = br.makeBiHorarioReading(0,0)
         elif typeOfMeter == 3:
-                readingObject = triHorarioReading(0,0,0)
+                readingObject = tr.makeTriHorarioReading(0,0,0)
   
         
         # if typeOfMeter == 1:

@@ -45,12 +45,15 @@ def getLastReading():
 
 def choosePowerSpot(name):
     try:
-        choosenPlace = consumptionPlaces[name]
+        global choosenPlace
+        choosenPlace = consumptionPlaces.get(name)
     except KeyError:
         return False
 
 def getAllPowerSpotsName():
-    return list(consumptionPlaces.keys())
+    lista = list(consumptionPlaces.keys()) #THIS NEEDS TO BE DONE CAUSE THE LIST IS SORTED IN PLACE DOESNT RETURN SORTED LIST
+    lista.sort()
+    return lista
 
 def deletePowerSpot(name):
     del consumptionPlaces[name]

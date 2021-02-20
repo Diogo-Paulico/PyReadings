@@ -5,7 +5,7 @@ import defineFunctions as fun
 
 def start():
     fun.load()
-    if fun.anyPlace():
+    if not fun.anyPlace():
         noPlacesAddedMenu()
     else:
         menu()
@@ -25,7 +25,7 @@ def noPlacesAddedMenu():
     elif choice=="q":
         return
     else:
-        print("You must only select one of the available options")
+        print("You must selonlyect one of the available options")
         print("Please try again")
         noPlacesAddedMenu()
 
@@ -36,18 +36,48 @@ def menu():
                       A : Apagar Local de Consumo
                       E : Escolher Local de Consumo
                       L : Listar Locais de Consumo
-                      Q: Exit
+                      Q : Exit
 
                       Please enter your choice: """).lower()
 
     if choice =="a":
-        pick = placePicker()
-        input("Deseja apagar o local {0}? (SIM para confirmar, outro valor para anular)")
+        deletePlace()
+        menu()
+    elif choice=="e":
+        placePicker()
+        pickedMenu()
+    elif choice=="l":
+        placeDisplay()
         menu()
     elif choice=="q":
         exitS()
     else:
-        print("You must only select one of the available options")
+        print("You must select one of the available options")
+        print("Please try again")
+        menu()
+
+
+def pickedMenu():
+    choice = input("""
+                      V : Ver Última Contagem
+                      C : Comunicar Contagem
+                      L : Voltar ao menu anterior
+                      Q : Exit
+
+                      Please enter your choice: """).lower()
+
+    if choice =="v":
+        showLastReading()
+        pickedMenu()
+    elif choice=="c":
+        print("not yet")
+        pickedMenu()
+    elif choice=="l":
+        menu()
+    elif choice=="q":
+        exitS()
+    else:
+        print("You must select one of the available options")
         print("Please try again")
         menu()
 
@@ -55,8 +85,11 @@ def menu():
 def placePicker():
     picked = 0
     counter = placeDisplay()
+    print(list(range(1, counter)))
     while picked not in list(range(1, counter)):
-        picked = input("Escolha um elemento da lista usando os seus numeros (1-{0}".format(str(counter - 1)))
+        picked = int(input("Escolha um elemento da lista usando os seus numeros (1 - {0})".format(str(counter - 1))))
+    placeName = fun.getAllPowerSpotsName()[picked-1]
+    fun.choosePowerSpot(placeName)
     return picked
     
 
@@ -65,7 +98,7 @@ def placeDisplay():
     places = fun.getAllPowerSpotsName()
     counter = 1
     for placeName in places:
-        print('{0}: {1} \n').format(counter, placeName) # will print the name as defined by the _str_ method
+        print('{0}: {1} \n'.format(counter, placeName)) # will print the name as defined by the _str_ method
         counter += 1
     return counter
 
@@ -73,19 +106,28 @@ def register():
     name = input("Insira um nome único para o local de consumo: ")
     cpe = input("Insira o CPE (encontra-se na fatura e começa com PT): ")
     nif = nifEntry()
-    typeOfMeter = typeEntry()
+    typeOfMeter = int(typeEntry()) 
     choice = input("""
                     Deseja inserir uma leitura inicial? (Esta será adicionada ao sistema mas não comunicada) (SIM/NAO): 
                     """).strip().lower()
     fun.createNewPowerPlace(name, cpe, nif, typeOfMeter)
-    if choice:
+    if choice == "sim":
         fun.choosePowerSpot(name)
         addReading()
         fun.resetChoosenPlace()
         
 
 
-        
+def deletePlace():
+    pick = placePicker()
+    state = True if (input("Deseja apagar o local {0}? (SIM para confirmar, outro valor para anular)".format(pick)).strip().lower() == "sim") else False
+    if state:
+        fun.deletePowerSpot(pick)
+        print("Apagado! \n")
+    else:
+        print("Anulado! \n")
+    time.sleep(1)
+
 
 
 def addReading():
@@ -122,7 +164,9 @@ def typeEntry():
     typeOfMeter = input("""
                             1: Contador Simples
                             2: Contador bi-horário
-                            3: Contador tri-horário""").strip()
+                            3: Contador tri-horário
+                            
+                            Please enter your choice: """).strip()
     if typeOfMeter in meterSet:
         return typeOfMeter
     else:
@@ -179,5 +223,5 @@ pyautogui.press('enter')
 
 
 
-
+start()
 

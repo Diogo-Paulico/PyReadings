@@ -4,19 +4,23 @@ class triHorarioReading:
         self.vazio = vazio
         self.ponta = ponta
 
-    def updateReading(self, cheias, vazio, ponta):
-        if self.cheias <= cheias and self.vazio <= ponta:
+def updateReading(self, cheias, vazio, ponta):
+    if self.cheias <= cheias and self.vazio <= ponta:
             self.cheias = cheias
             self.vazio = vazio
             self.ponta = ponta
-        else:
+    else:
             raise ValueError
 
-    def getLastReading(self):
-        return {
-            "cheias": self.cheias,
-            "vazio": self.vazio,
-            "ponta": self.ponta
-        }
+def makeTriHorarioReading(cheias, vazio, ponta):
+    tri = triHorarioReading(cheias, vazio, ponta)
+    return tri
+
+def getLastReading(self):
+    return {
+        "cheias": self.cheias,
+        "vazio": self.vazio,
+        "ponta": self.ponta
+    }
 
 

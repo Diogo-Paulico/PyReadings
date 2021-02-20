@@ -8,7 +8,11 @@ class simpleReading:
         else:
             raise ValueError
 
-    def getLastReading(self):
-        return {
-            "simples": self.simples
-            }
+def makeSimpleReading(simples):
+    simple = simpleReading(simples)
+    return simple
+    
+def getLastReading(self):
+     return {
+      "simples": self.simples
+        }
