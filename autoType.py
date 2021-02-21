@@ -1,6 +1,8 @@
 import webbrowser as wb, json, time
 import pyautogui
 import defineFunctions as fun
+from os import system, name
+
 
 
 def start():
@@ -33,15 +35,19 @@ def noPlacesAddedMenu():
 
 def menu():
     choice = input("""
-                      A : Apagar Local de Consumo
-                      E : Escolher Local de Consumo
-                      L : Listar Locais de Consumo
-                      Q : Exit
+            A: Adicionar Local de Consumo
+            R : Apagar Local de Consumo
+            E : Escolher Local de Consumo
+            L : Listar Locais de Consumo
+            Q : Exit
 
-                      Please enter your choice: """).lower()
+            Please enter your choice: """).lower()
 
-    if choice =="a":
+    if choice =="r":
         deletePlace()
+        menu()
+    elif choice == 'a':
+        register()
         menu()
     elif choice=="e":
         placePicker()
@@ -73,6 +79,7 @@ def pickedMenu():
         print("not yet")
         pickedMenu()
     elif choice=="l":
+        clear()
         menu()
     elif choice=="q":
         exitS()
@@ -103,18 +110,19 @@ def placeDisplay():
     return counter
 
 def register():
-    name = input("Insira um nome único para o local de consumo: ")
+    clear()
+    name = nameEntry()
     cpe = input("Insira o CPE (encontra-se na fatura e começa com PT): ")
     nif = nifEntry()
     typeOfMeter = int(typeEntry()) 
     choice = input("""
-                    Deseja inserir uma leitura inicial? (Esta será adicionada ao sistema mas não comunicada) (SIM/NAO): 
-                    """).strip().lower()
+                    Deseja inserir uma leitura inicial? (Esta será adicionada ao sistema mas não comunicada) (SIM/NAO):  """).strip().lower()
     fun.createNewPowerPlace(name, cpe, nif, typeOfMeter)
     if choice == "sim":
         fun.choosePowerSpot(name)
         addReading()
         fun.resetChoosenPlace()
+    clear()
         
 
 
@@ -145,10 +153,17 @@ def showLastReading():
         print('{0}: {1}'.format(x,str(y)))
 
 
+def nameEntry():
+    choice = input("Insira um nome único para o local de consumo: ").strip()
+    if fun.checkIfPlaceDoesNotExist(choice):
+        return choice
+    else:
+        print("Por Favor insira um nome não repetido")
+        nameEntry()
+
 def initialReadingEntry():
     choice = input("""
-                    Deseja inserir uma leitura inicial? (SIM/NAO): 
-                    """).strip().lower()
+        Deseja inserir uma leitura inicial? (SIM/NAO):  """).strip().lower()
     if choice == "nao":
         return False
     elif choice == "sim":
@@ -162,11 +177,11 @@ def initialReadingEntry():
 def typeEntry():
     meterSet = {"1","2","3"}
     typeOfMeter = input("""
-                            1: Contador Simples
-                            2: Contador bi-horário
-                            3: Contador tri-horário
+                1: Contador Simples
+                2: Contador bi-horário
+                3: Contador tri-horário
                             
-                            Please enter your choice: """).strip()
+                Please enter your choice: """).strip()
     if typeOfMeter in meterSet:
         return typeOfMeter
     else:
@@ -188,7 +203,19 @@ def nifEntry():
 
 def exitS():
     fun.save()
+    clear()
     return
+
+
+def clear():
+        if name == "nt":
+
+        #if windows, linux
+            _ = system("cls")
+
+        else:
+        #mac, etc.
+            _ = system("clear")
 
 """ 
 

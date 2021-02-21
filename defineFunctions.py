@@ -27,6 +27,7 @@ def createNewPowerPlace(name, cpe, nif, type):
 
 
 def resetChoosenPlace():
+    global choosenPlace
     choosenPlace = None
 
 
@@ -58,6 +59,10 @@ def getAllPowerSpotsName():
 
 def deletePowerSpot(name):
     del consumptionPlaces[name]
+
+def checkIfPlaceDoesNotExist(key):
+    return not anyPlace() or  key not in consumptionPlaces
+
 
 
 
