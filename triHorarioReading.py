@@ -1,11 +1,11 @@
 class triHorarioReading:
-    def __init__(self, cheias, vazio, ponta):
+    def __init__(self, ponta, vazio, cheias):
         self.cheias = cheias
         self.vazio = vazio
         self.ponta = ponta
 
-    def updateReading(self, cheias, vazio, ponta):
-        if self.cheias <= cheias and self.vazio <= ponta:
+    def updateReading(self, ponta, vazio, cheias):
+        if self.cheias <= cheias and self.vazio <= vazio and self.ponta <= ponta:
                 self.cheias = cheias
                 self.vazio = vazio
                 self.ponta = ponta
@@ -14,9 +14,9 @@ class triHorarioReading:
 
     def getLastReading(self):
         return {
-            "cheias": self.cheias,
-            "vazio": self.vazio,
-            "ponta": self.ponta
+            "Cheias": self.cheias,
+            "Vazio": self.vazio,
+            "Ponta": self.ponta
         }
 
 def makeTriHorarioReading(cheias, vazio, ponta):

@@ -10,7 +10,7 @@ class simpleReading:
 
     def getLastReading(self):
              return {
-                "simples": self.simples
+                "Simples": self.simples
                 }
 
 def makeSimpleReading(simples):

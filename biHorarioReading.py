@@ -3,7 +3,7 @@ class biHorarioReading:
          self.vazio = vazio
          self.foraVazio = foraVazio
         
-    def updateReading(self, vazio, foraVazio):
+    def updateReading(self, foraVazio, vazio):
         if self.vazio <= vazio and self.foraVazio <= foraVazio:
             self.vazio = vazio
             self.foraVazio = foraVazio
@@ -12,8 +12,8 @@ class biHorarioReading:
         
     def getLastReading(self):
         return {
-            "foraVazio": self.foraVazio,
-            "vazio": self.vazio
+            "Fora Vazio": self.foraVazio,
+            "Vazio": self.vazio
             }
 
 

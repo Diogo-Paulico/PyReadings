@@ -44,6 +44,7 @@ class powerSpot:
         try:
             self.lastReading.updateReading(*argv)
             self.lastReadingDate = date.today().strftime("%d/%m/%Y")
+            return True
         except ValueError:
             return False
 
@@ -54,9 +55,12 @@ class powerSpot:
         return reading
 
     def getReadingArgs(self):
-        if type(self.lastReading) is sr:
+        if type(self.lastReading) is sr.simpleReading:
             return ["Simples"]
-        elif type(self.lastReading) is br:
-            return ["Vazio", "Fora Vazio"]
-        elif type(self.lastReading) is tr:
-            return [ "Cheias", "Vazio", "Ponta"]
+        elif type(self.lastReading) is br.biHorarioReading:
+            return ["Fora Vazio", "Vazio"]
+        elif type(self.lastReading) is tr.triHorarioReading:
+            return ["Ponta", "Vazio", "Cheias"]
+        else:
+            print(type(self.lastReading))
+            print("fodeu grave")

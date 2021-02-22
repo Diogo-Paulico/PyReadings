@@ -1,7 +1,7 @@
 import pickle as saver
 from powerSpot import powerSpot
 
-FILENAME = 'consumptionplaces.power' 
+FILENAME = 'places.pw' 
 
 consumptionPlaces = {}
 choosenPlace = None
@@ -38,9 +38,14 @@ def anyPlace():
 def getReadingArgs():
     return choosenPlace.getReadingArgs()
 
+def getChoosenPlaceCPE():
+    return str(choosenPlace.cpe)
+
+def getChoosenPlaceNIF():
+    return str(choosenPlace.nif)
 
 def updateReading(*argv):
-    choosenPlace.updateReading(*argv)
+    return choosenPlace.updateReading(*argv)
 
 def getLastReading():
     return choosenPlace.getLastReading()

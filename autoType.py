@@ -35,7 +35,7 @@ def noPlacesAddedMenu():
 
 def menu():
     choice = input("""
-            A: Adicionar Local de Consumo
+            A : Adicionar Local de Consumo
             R : Apagar Local de Consumo
             E : Escolher Local de Consumo
             L : Listar Locais de Consumo
@@ -43,6 +43,7 @@ def menu():
 
             Please enter your choice: """).lower()
 
+    clear()
     if choice =="r":
         deletePlace()
         menu()
@@ -50,7 +51,7 @@ def menu():
         register()
         menu()
     elif choice=="e":
-        placePicker()
+        chooseCurrentPlace()
         pickedMenu()
     elif choice=="l":
         placeDisplay()
@@ -60,6 +61,8 @@ def menu():
     else:
         print("You must select one of the available options")
         print("Please try again")
+        time.sleep(1)
+        clear()
         menu()
 
 
@@ -71,33 +74,37 @@ def pickedMenu():
                       Q : Exit
 
                       Please enter your choice: """).lower()
-
+    clear()
     if choice =="v":
         showLastReading()
         pickedMenu()
     elif choice=="c":
-        print("not yet")
+        addReading(True)
         pickedMenu()
     elif choice=="l":
-        clear()
+        fun.resetChoosenPlace()
         menu()
     elif choice=="q":
         exitS()
     else:
         print("You must select one of the available options")
         print("Please try again")
+        time.sleep(1)
         menu()
+
+
+def chooseCurrentPlace():
+    name = placePicker()
+    fun.choosePowerSpot(name)
 
 
 def placePicker():
     picked = 0
     counter = placeDisplay()
-    print(list(range(1, counter)))
     while picked not in list(range(1, counter)):
-        picked = int(input("Escolha um elemento da lista usando os seus numeros (1 - {0})".format(str(counter - 1))))
+        picked = int(input("Escolha um elemento da lista usando os seus numeros (1 - {0}): ".format(str(counter - 1))))
     placeName = fun.getAllPowerSpotsName()[picked-1]
-    fun.choosePowerSpot(placeName)
-    return picked
+    return placeName
     
 
 
@@ -120,7 +127,7 @@ def register():
     fun.createNewPowerPlace(name, cpe, nif, typeOfMeter)
     if choice == "sim":
         fun.choosePowerSpot(name)
-        addReading()
+        addReading(False)
         fun.resetChoosenPlace()
     clear()
         
@@ -138,12 +145,54 @@ def deletePlace():
 
 
 
-def addReading():
+def addReading(communicate):
     reading = []
     args = fun.getReadingArgs()
     for field in args:
-        reading.append(input('{0}: '.format(field)))
-    fun.updateReading(reading)
+        reading.append(int(input('{0}: '.format(field))))
+    result = fun.updateReading(*reading)
+    if not result:
+        print('A contagem é inferior à registada anteriormente. Tente novamente! \n')
+        return
+
+    if communicate:
+        communicateReading(reading)
+
+
+def communicateReading(reading):
+    wb.open('https://www.e-redes.pt/pt-pt/podemos-ajudar/comunicar-leituras', new=1, autoraise=True)
+    input("""
+        Coloque a janela do browser em foco (Pressione uma zona cinzenta por cima do campo CPE) 
+        e depois volte a esta janela e pressione Enter!, quando aparecer os campos para 
+        colocar a contagem volte aqui""")        
+    altTab()
+    pyautogui.press('tab')
+    pyautogui.write(fun.getChoosenPlaceCPE())
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.write(fun.getChoosenPlaceNIF())
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.press('enter')
+    clear()
+    input('Pressione Enter para escrever a contagem! Confirme o valor e pressione "Submeter Leitura"')
+    time.sleep(0.2)
+    altTab()
+    pyautogui.press('tab')
+    pyautogui.write(str(reading[0]))
+    fields = len(reading) - 1
+    if fields == 0:
+        for x in range(0, fields):
+            pyautogui.press('tab')
+            pyautogui.write(str(reading[x+1]))
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+
+
+    
+
+
 
 
 def showLastReading():
@@ -163,7 +212,7 @@ def nameEntry():
 
 def initialReadingEntry():
     choice = input("""
-        Deseja inserir uma leitura inicial? (SIM/NAO):  """).strip().lower()
+    Deseja inserir uma leitura inicial? (SIM/NAO): """).strip().lower()
     if choice == "nao":
         return False
     elif choice == "sim":
@@ -217,10 +266,6 @@ def clear():
         #mac, etc.
             _ = system("clear")
 
-""" 
-
-wb.open('https://www.e-redes.pt/pt-pt/podemos-ajudar/comunicar-leituras', new=1, autoraise=True)
-
 
 def altTab():
     pyautogui.keyDown('alt')
@@ -229,9 +274,9 @@ def altTab():
     time.sleep(.2)
     pyautogui.keyUp('alt')
 
+""" 
 
-#input()        
-# altTab()
+
 pyautogui.confirm('Is the browser window in focus?', buttons=['Yes', 'No'])
 
 # pyautogui.confirm('Enter option.', buttons=['A', 'B', 'C'])
