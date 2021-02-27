@@ -273,6 +273,7 @@ def altTab():
     pyautogui.press('tab')
     time.sleep(.2)
     pyautogui.keyUp('alt')
+    time.sleep(.2)
 
 """ 
 
