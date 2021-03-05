@@ -22,7 +22,3 @@ class triHorarioReading:
 def makeTriHorarioReading(cheias, vazio, ponta):
     tri = triHorarioReading(cheias, vazio, ponta)
     return tri
-
-
-
-

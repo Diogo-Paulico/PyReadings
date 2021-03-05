@@ -15,6 +15,4 @@ class simpleReading:
 
 def makeSimpleReading(simples):
     simple = simpleReading(simples)
-    return simple
-    
-    
+    return simple 
