@@ -1,4 +1,3 @@
-from os import read
 import simpleReading as sr
 import biHorarioReading as br
 import triHorarioReading as tr
@@ -19,24 +18,7 @@ class powerSpot:
                 readingObject = br.makeBiHorarioReading(0,0)
         elif typeOfMeter == 3:
                 readingObject = tr.makeTriHorarioReading(0,0,0)
-  
-        
-        # if typeOfMeter == 1:
-        #     if(len(argv) == 0):
-        #         readingObject = simpleReading(0)
-        #     elif (len(argv) == 1):
-        #         readingObject = simpleReading(argv[0])
-        # elif typeOfMeter == 2:
-        #     if(len(argv) == 0):
-        #         readingObject = biHorarioReading(0,0)
-        #     elif (len(argv) == 2):
-        #         readingObject = biHorarioReading(argv[0], argv[1])
-        # elif typeOfMeter == 3:
-        #     if(len(argv) == 0):
-        #         readingObject = triHorarioReading(0,0,0)
-        #     elif (len(argv) == 3):
-        #         readingObject = triHorarioReading(argv[0], argv[1], argv[2])
-       
+
         self.lastReading = readingObject
         self.lastReadingDate = date.today().strftime("%d/%m/%Y")
 
@@ -61,6 +43,3 @@ class powerSpot:
             return ["Fora Vazio", "Vazio"]
         elif type(self.lastReading) is tr.triHorarioReading:
             return ["Ponta", "Vazio", "Cheias"]
-        else:
-            print(type(self.lastReading))
-            print("fodeu grave")
