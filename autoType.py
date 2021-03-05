@@ -1,11 +1,11 @@
-import webbrowser as wb, json, time
-import pyautogui
+import webbrowser as wb
+from time import sleep
+from pyautogui import press, write as typeT, keyDown, keyUp
 import defineFunctions as fun
 from os import system, name
 
-
-
 def start():
+    clear()
     fun.load()
     if not fun.anyPlace():
         noPlacesAddedMenu()
@@ -27,8 +27,10 @@ def noPlacesAddedMenu():
     elif choice=="q":
         return
     else:
-        print("You must selonlyect one of the available options")
+        print("You must select one of the available options")
         print("Please try again")
+        sleep(3)
+        clear()
         noPlacesAddedMenu()
 
 
@@ -52,6 +54,7 @@ def menu():
         menu()
     elif choice=="e":
         chooseCurrentPlace()
+        clear()
         pickedMenu()
     elif choice=="l":
         placeDisplay()
@@ -61,12 +64,13 @@ def menu():
     else:
         print("You must select one of the available options")
         print("Please try again")
-        time.sleep(1)
+        sleep(3)
         clear()
         menu()
 
 
 def pickedMenu():
+    #clear()
     choice = input("""
                       V : Ver Última Contagem
                       C : Comunicar Contagem
@@ -89,7 +93,8 @@ def pickedMenu():
     else:
         print("You must select one of the available options")
         print("Please try again")
-        time.sleep(1)
+        sleep(3)
+        clear()
         menu()
 
 
@@ -141,7 +146,7 @@ def deletePlace():
         print("Apagado! \n")
     else:
         print("Anulado! \n")
-    time.sleep(1)
+    sleep(1)
 
 
 
@@ -166,28 +171,28 @@ def communicateReading(reading):
         e depois volte a esta janela e pressione Enter!, quando aparecer os campos para 
         colocar a contagem volte aqui""")        
     altTab()
-    pyautogui.press('tab')
-    pyautogui.write(fun.getChoosenPlaceCPE())
-    pyautogui.press('tab')
-    pyautogui.press('tab')
-    pyautogui.write(fun.getChoosenPlaceNIF())
-    pyautogui.press('tab')
-    pyautogui.press('tab')
-    pyautogui.press('tab')
-    pyautogui.press('enter')
+    press('tab')
+    typeT(fun.getChoosenPlaceCPE())
+    press('tab')
+    press('tab')
+    typeT(fun.getChoosenPlaceNIF())
+    press('tab')
+    press('tab')
+    press('tab')
+    press('enter')
     clear()
     input('Pressione Enter para escrever a contagem! Confirme o valor e pressione "Submeter Leitura"')
-    time.sleep(0.2)
+    sleep(0.2)
     altTab()
-    pyautogui.press('tab')
-    pyautogui.write(str(reading[0]))
+    press('tab')
+    typeT(str(reading[0]))
     fields = len(reading) - 1
     if fields == 0:
         for x in range(0, fields):
-            pyautogui.press('tab')
-            pyautogui.write(str(reading[x+1]))
-    pyautogui.press('tab')
-    pyautogui.press('tab')
+            press('tab')
+            typeT(str(reading[x+1]))
+    press('tab')
+    press('tab')
 
 
     
@@ -268,12 +273,12 @@ def clear():
 
 
 def altTab():
-    pyautogui.keyDown('alt')
-    time.sleep(.2)
-    pyautogui.press('tab')
-    time.sleep(.2)
-    pyautogui.keyUp('alt')
-    time.sleep(.2)
+    keyDown('alt')
+    sleep(.2)
+    press('tab')
+    sleep(.2)
+    keyUp('alt')
+    sleep(.2)
 
 """ 
 
