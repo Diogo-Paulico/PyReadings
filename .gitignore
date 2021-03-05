@@ -1,0 +1,6 @@
+*.pw
+/build/
+/dist/
+/__pycache__/
+/upx/
+*.spec
