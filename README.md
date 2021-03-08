@@ -43,7 +43,3 @@ python3 ./readings.py
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to all that made the examples from where I learned to use IMAP, SMTP and Pandas
