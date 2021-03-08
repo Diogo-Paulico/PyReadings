@@ -1,10 +1,10 @@
 {
    "en": {
-        "noplacesmenu":"    A : Add Consumption Place\n    T : Mudar para Português\n    Q : Exit\n",
+        "noplacesmenu":"    A : Add contract\n    T : Mudar para Português\n    Q : Exit\n",
         "enterchoice":"    Please enter your choice: ",
         "selectavailable":"You must select one of the available options",
         "tryagain":"Please try again",
-        "menu":"    A : Add Consumption Place\n    R : Remove Consumption Place\n    E : Pick Consumption Place\n    L : List Consumption Places\n    T : Mudar para Português\n    Q : Exit\n",
+        "menu":"    A : Add contract\n    R : Remove contract\n    E : Pick contract\n    L : List Consumption Places\n    T : Mudar para Português\n    Q : Exit\n",
         "pickedmenu":"    V : Get Last Reading\n    C : Send Reading\n    L : Go Back to Previous Menu\n    T : Mudar para Português\n    Q : Exit\n",
         "placepicker":"Pick an element from the list using the numbers (1 - {0}): ",   
         "cpeinput":"Input the CPE (present in your electric bill and starts by PT): ",
@@ -14,7 +14,7 @@
         "pleaseyn":"Please enter YES or NO \n",
         "nifinput":"Input the NIF associated with the energy contract: ",
         "nif9digits":"The NIF should have 9 digits! \n",
-        "placename": "Insert a unique name for the consumption place: ",
+        "placename": "Insert a unique name for the contract: ",
         "uniquenamewarning":"Please input a unique name",
         "deleteconfirm":"Would you like to delete the place {0}? (YES to delete, anything else to cancel): ",
         "deleted":"Deleted!",
