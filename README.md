@@ -1,29 +1,40 @@
 # PyReadings
 
-Allows you to send your electricity readings to former EDP Distribuição, now E-Redes. This program is specially useful if you have multiple people or homes whose readings you send out. It will keep the necessary data to submit the readings (CPE and NIF) and also the last given reading as well as the date of when it was given.
+Allows you to send your electricity readings to former EDP Distribuição, now E-Redes. This program is specially useful if you have multiple people or homes whose readings you send out. It will keep the necessary data to submit the readings (CPE and NIF) and also the last given reading as well as the date of when it was given. It has language support for English and Portuguese
 
 ## Getting it up and Running
 
 ### Prerequisites
 
-You will need Python3 and the Pandas library installed to use this <br/>
-To install pandas on Python3 open a terminal and type:
+A standalone version for 64 bit Linux and Windows is made available in the Releases section of the repository, if you do not want to install python3 and the required library on your machine.
+
+You will need Python3 and the pyautogui installed to use this.
+
+To install pyautogui on Python3 open a terminal and type:
 ```
-pip3 install pandas
+pip3 install pyautogui
 ```
 
-## Adapting it to your needs
+## Running it
 
+### For Windows:
+In the standalone version in Windows all you have to do is double click the downloaded .exe file,
 
-All you need to do is modify the [config.py](config.py) file to get it to work for your needs<br/>
-DISCLAIMER: This was only tested using a Gmail account it may not work for other email accounts
+### For Linux:
+For the standalone Linux version you will have to use a terminal to navigate the directory where the file was saved and then ./readings
 
-## How does it work?
+### For the non-standalone version (Should be OS independent):
+``` 
+python3 ./readings.py
+```
 
-* Load the contacts from the CSV file specified in the [config.py](config.py) - An example CSV file is provided to help understand the format it should take [contacts.csv](contacts.csv) (it must always contain a column named "Email")
-* Check if anyone unsubscribed by accessing the email used to send the newsletters using the IMAP protocol, filtering by unseen messages with the subject specified in said config file (CANCEL_SUBJECT_KEYWORD)
-* Contacts unsubscribed will be removed from CSV, if SEND_UNSUB_MESSAGE is true, they will get an email you can specify in the config file
-* All the contacts that remain in the emailing list will be sent the newsletter specified in the config file
+## What can it do?
+
+* Keep all the necessary data needed to communicate energy readings for multiple energy contracts
+* List all the registered contracts
+* Delete registered contracts
+* Show the last registered reading and date for each contract
+* Send readings to the electricity distribuitor (E-REDES) independently of whoever is your electricity supplier
 
 ## Authors
 
