@@ -1,63 +1,63 @@
 {
-   "en": {
-        "noplacesmenu":"    A : Add contract\n    T : Mudar para Português\n    Q : Exit\n",
-        "enterchoice":"    Please enter your choice: ",
-        "selectavailable":"You must select one of the available options",
-        "tryagain":"Please try again",
-        "menu":"    A : Add contract\n    R : Remove contract\n    E : Pick contract\n    L : List Contracts\n    T : Mudar para Português\n    Q : Exit\n",
-        "pickedmenu":"    V : Get Last Reading\n    C : Send Reading\n    L : Go Back to Previous Menu\n    T : Mudar para Português\n    Q : Exit\n",
-        "placepicker":"Pick an element from the list using the numbers (1 - {0}): ",   
-        "cpeinput":"Input the CPE (present in your electric bill and starts by PT): ",
-        "firstreadingquery":"Would you like to input a reading? (This reading will be saved but not communicated) (YES/NO):  ",
-        "cancelword": "no",
-        "acceptword":"yes",
-        "pleaseyn":"Please enter YES or NO \n",
-        "nifinput":"Input the NIF associated with the energy contract: ",
-        "nif9digits":"The NIF should have 9 digits! \n",
-        "placename": "Insert a unique name for the contract: ",
-        "uniquenamewarning":"Please input a unique name",
-        "deleteconfirm":"Would you like to delete the contract {0}? (YES to delete, anything else to cancel): ",
-        "deleted":"Deleted!",
-        "canceled":"Canceled!",
-        "lowreading":"The reading is inferior to the previous one given. Try again! \n",
-        "validmeter":"Choose a valid type of meter (1, 2 ou 3)! \n",
-        "metertype":"    1: Contador Simples\n    2: Contador bi-horário\n    3: Contador tri-horário\n",
-        "browser1":"    Place the browser windows in focus (Press a gray area on top of CPE)\n    then come back to this window and press Enter!, when the fields to input\n    the reading appear come back here",
-        "submitreading":"Press Enter to autotype the reading! Check if the value(s) are correct and press Submeter Leitura"
-
-
-
-    },
-   "pt": {
-        "noplacesmenu":"    A : Adicionar Local de Consumo\n    T : Set Language to English\n    Q : Sair\n: ",
-        "enterchoice":"    Escolha uma opção: ",
-        "selectavailable":"Escolha uma das opções disponíveis!",
-        "tryagain":"Por favor tente de novo",
-        "menu":"    A : Adicionar Local de Consumo\n    R : Apagar Local de Consumo\n    E : Escolher Local de Consumo\n    L : Listar Locais de Consumo\n    T : Set Language to English\n    Q : Sair\n",
-        "pickedmenu":"    V : Ver Última Contagem\n    C : Comunicar Contagem\n    L : Voltar ao menu anterior\n    T : Set Language to English\n    Q : Sair\n",
-        "placepicker":"Escolha um elemento da lista usando os numeros (1 - {0}): ",
-        "cpeinput":"Insira o CPE (encontra-se na fatura e começa com PT): ",
-        "firstreadingquery":"Deseja inserir uma leitura inicial? (Esta será adicionada ao sistema mas não comunicada) (SIM/NAO):  ",
-        "cancelword": "nao",
-        "acceptword":"sim",
-        "pleaseyn":"Por Favor insira SIM ou NAO \n",
-        "nifinput":"Insira o NIF associado ao contrato: ",
-        "nif9digits":"O NIF deve conter 9 dígitos! \n",   
-        "placename":"Insira um nome único para o local de consumo: ",
-        "uniquenamewarning":"Por Favor insira um nome não repetido",
-        "deleteconfirm":"Deseja apagar o local {0}? (SIM para confirmar, outro valor para anular): ",
-        "deleted":"Apagado!",
-        "canceled":"Anulado!",
-        "lowreading":"A contagem é inferior à registada anteriormente. Tente novamente! \n",
-        "validmeter":"Deve inserir um tipo de contador válido (1, 2 ou 3)! \n",
-        "metertype":"    1: Contador Simples\n    2: Contador bi-horário\n    3: Contador tri-horário\n",
-        "browser1":"    Coloque a janela do browser em foco (Pressione uma zona cinzenta por cima do campo CPE)\n    e depois volte a esta janela e pressione Enter!, quando aparecer os\n    campos para colocar a contagem volte aqui",
-        "submitreading":"Pressione Enter para escrever a contagem! Confirme o valor e pressione Submeter Leitura"
-
-
-
-
-    
-    
-    }
-}
+    "en": {
+         "noplacesmenu":"    A : Add contract\n    T : Mudar para Portugues\n    Q : Exit\n",
+         "enterchoice":"    Please enter your choice: ",
+         "selectavailable":"You must select one of the available options",
+         "tryagain":"Please try again",
+         "menu":"    A : Add contract\n    R : Remove contract\n    E : Pick contract\n    L : List Contracts\n    T : Mudar para Portugues\n    Q : Exit\n",
+         "pickedmenu":"    V : Get Last Reading\n    C : Send Reading\n    L : Go Back to Previous Menu\n    T : Mudar para Portugues\n    Q : Exit\n",
+         "placepicker":"Pick an element from the list using the numbers (1 - {0}): ",   
+         "cpeinput":"Input the CPE (present in your electric bill and starts by PT): ",
+         "firstreadingquery":"Would you like to input a reading? (This reading will be saved but not communicated) (YES/NO):  ",
+         "cancelword": "no",
+         "acceptword":"yes",
+         "pleaseyn":"Please enter YES or NO \n",
+         "nifinput":"Input the NIF associated with the energy contract: ",
+         "nif9digits":"The NIF should have 9 digits! \n",
+         "placename": "Insert a unique name for the contract: ",
+         "uniquenamewarning":"Please input a unique name",
+         "deleteconfirm":"Would you like to delete the contract {0}? (YES to delete, anything else to cancel): ",
+         "deleted":"Deleted!",
+         "canceled":"Canceled!",
+         "lowreading":"The reading is inferior to the previous one given. Try again! \n",
+         "validmeter":"Choose a valid type of meter (1, 2 ou 3)! \n",
+         "metertype":"    1: Contador Simples\n    2: Contador bi-horario\n    3: Contador tri-horario\n",
+         "browser1":"    Place the browser windows in focus (Press a gray area on top of CPE)\n    then come back to this window and press Enter!, when the fields to input\n    the reading appear come back here",
+         "submitreading":"Press Enter to autotype the reading! Check if the value(s) are correct and press Submeter Leitura"
+ 
+ 
+ 
+     },
+    "pt": {
+         "noplacesmenu":"    A : Adicionar Local de Consumo\n    T : Set Language to English\n    Q : Sair\n: ",
+         "enterchoice":"    Escolha uma opcao: ",
+         "selectavailable":"Escolha uma das opcoes disponiveis!",
+         "tryagain":"Por favor tente de novo",
+         "menu":"    A : Adicionar Local de Consumo\n    R : Apagar Local de Consumo\n    E : Escolher Local de Consumo\n    L : Listar Locais de Consumo\n    T : Set Language to English\n    Q : Sair\n",
+         "pickedmenu":"    V : Ver ultima Contagem\n    C : Comunicar Contagem\n    L : Voltar ao menu anterior\n    T : Set Language to English\n    Q : Sair\n",
+         "placepicker":"Escolha um elemento da lista usando os numeros (1 - {0}): ",
+         "cpeinput":"Insira o CPE (encontra-se na fatura e comeca com PT): ",
+         "firstreadingquery":"Deseja inserir uma leitura inicial? (Esta sera adicionada ao sistema mas nao comunicada) (SIM/NAO):  ",
+         "cancelword": "nao",
+         "acceptword":"sim",
+         "pleaseyn":"Por Favor insira SIM ou NAO \n",
+         "nifinput":"Insira o NIF associado ao contrato: ",
+         "nif9digits":"O NIF deve conter 9 digitos! \n",   
+         "placename":"Insira um nome unico para o local de consumo: ",
+         "uniquenamewarning":"Por Favor insira um nome nao repetido",
+         "deleteconfirm":"Deseja apagar o local {0}? (SIM para confirmar, outro valor para anular): ",
+         "deleted":"Apagado!",
+         "canceled":"Anulado!",
+         "lowreading":"A contagem e inferior a registada anteriormente. Tente novamente! \n",
+         "validmeter":"Deve inserir um tipo de contador valido (1, 2 ou 3)! \n",
+         "metertype":"    1: Contador Simples\n    2: Contador bi-horario\n    3: Contador tri-horario\n",
+         "browser1":"    Coloque a janela do browser em foco (Pressione uma zona cinzenta por cima do campo CPE)\n    e depois volte a esta janela e pressione Enter!, quando aparecer os\n    campos para colocar a contagem volte aqui",
+         "submitreading":"Pressione Enter para escrever a contagem! Confirme o valor e pressione Submeter Leitura"
+ 
+ 
+ 
+ 
+     
+     
+     }
+ }
